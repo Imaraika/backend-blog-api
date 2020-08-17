@@ -1,0 +1,32 @@
+{
+  "name": "backend-blog-api",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000b\u0000a\u0000c\u0000k\u0000e\u0000n\u0000d\u0000-\u0000b\u0000l\u0000o\u0000g\u0000-\u0000a\u0000p\u0000i\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --exec babel-node SRC/index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Imaraika/backend-blog-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Imaraika/backend-blog-api/issues"
+  },
+  "homepage": "https://github.com/Imaraika/backend-blog-api#readme",
+  "keywords": [],
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.1",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/register": "^7.10.5",
+    "express": "^4.17.1"
+  }
+}
