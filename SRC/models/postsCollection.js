@@ -18,8 +18,7 @@ var posts = [{
 
 {
     title: 'HTML:HyperText Markup Language',
-    content: `Convert Any Website into Android Application
-    in Android Studio in 10 minutes.
+    content: `HTML:HyperText Markup Language in 10 minutes.
     This tutorial walks you through creating a new Android Project, adding a WebView, loading a remote URL,
     and then loading a local HTML page. Design - Material , Software used: Android Studio...`,
     

@@ -4,7 +4,6 @@ import { v4 as uuidv4 } from 'uuid';
 const getAllMsgs = (req, res) => {
 	res.send(messages);
 };
-
 const getMsgById = (req, res) => {
 	let id = req.params.id;
 	let msg = messages.filter((msg) => msg.id === id);
