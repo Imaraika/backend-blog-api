@@ -1,21 +1,13 @@
-// import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 
-// var comments=[ {
-//         fullname: 'ange ingabire',
-//         suggestion: 'design is awesome job'
-//     },
-//     {
-//         fullname: 'simple man',
-//         suggestion: 'how u doin?'
-//     },
-//     {
-//         fullname: 'qwerty',
-//         suggestion: 'how to understand HTML?'
-//     },
-//     {
-//         fullname: 'jules',
-//         suggestion: 'how u doin?'
-//     }
-// ]
-// comments = comments.map((comment) => ({ id: uuidv4(), ...comment }));
-// export default comments
+var coments = [{
+    name:'ange',
+    comentMsg:'well done, and try to improve your UI to look good'
+},
+{
+    name:'ange',
+    comentMsg:'well done, and try to improve your UI to look good'
+},
+];
+coments = coments.map((coment)=>({id:uuidv4(), ...coment}));
+export default coments;

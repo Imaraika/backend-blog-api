@@ -1,17 +1,10 @@
-// const express = require('express');
-// const router = express.Router();
-// import {getAllComments,getCommentById,createComment,deleteComment} from '../controllers/commentsContr';
+import express from 'express';
+import {getAllComents,getAll,getComentById,update,deleteComent} from '../controllers/commentsContr';
 
-// // get all messages
-// router.get('/', getAllComments);
-
-// // get specific message by ID
-// router.get('/:id', getCommentById);
-
-// // create message by ID
-// router.post('/', createComment);
-
-// // delete message by ID
-// router.delete('/:id', deleteComment);
-
-// export default router;
+const router = express.Router();
+router.post('/coment', getAllComents);
+router.get('/coment', getAll);
+router.get('/coment/:id', getComentById);
+router.put('/coment/:id', update);
+router.delete('/coment/:id', deleteComent);
+export default router;

@@ -3,15 +3,15 @@ const router = express.Router();
 import { getAllMsgs, getMsgById, createMsg, deleteMesg } from '../controllers/messagesContr';
 
 // get all messages
-router.get('/', getAllMsgs);
+router.get('/message', getAllMsgs);
 
 // get specific message by ID
-router.get('/:id', getMsgById);
+router.get('/message:id', getMsgById);
 
 // create message by ID
-router.post('/', createMsg);
+router.post('/message', createMsg);
 
 // delete message by ID
-router.delete('/:id', deleteMesg);
+router.delete('/message:id', deleteMesg);
 
 export default router;

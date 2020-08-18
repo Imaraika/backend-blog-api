@@ -1,36 +1,92 @@
-// import comments from '../models/commentsCollection';
-// import { v4 as uuidv4 } from 'uuid';
+import coments from '../models/commentsCollection';
+import { v4 as uuidv4 } from 'uuid';
 
 
-//  const getAllComments = (req, res) => {
-//      res.send(comments);
-// };
-//  const getCommentById = (req, res) => {
-//     const id = req.params.id;
-//     const commenti = comments.filter((commenti) => commenti.id === id );
-//         res.send(commenti);
+export const getAll = (req, res) => {
+    if (!coments) {
+        return res.status(404).json({
+            status: 404,
+            error: 'No coments found',
+        });
+    }
+    return res.status(200).json({
+        status: 200,
+        message: 'coments successfully retrieved',
+        data: {
+            coments,
+        },
+    });
+};
+export const getComentById = (req, res) => {
+    const id = req.params.id;
+    const coment = coments.filter((coment) => {
+        return coment.id === id;
+    });
+    if (coment[0]) {
+        return res.status(200).json({
+            status: 200,
+            message: 'coment successfully retrieved',
+            data: coment,
+        });
+    }
+    return res.status(404).json({
+        status: 404,
+        error: 'coment not found',
+    });
 
-// };
-//  const createComment = (req, res) => {
-//     const comment = {
-//         id: uuidv4(),
-//         fullname: req.body.fullname,
-//         commentMsg: req.body.commentMsg
-//     };
-//     comments.push(comment);
-//     res.send(comments);
-// };
+};
+export const getAllComents = (req, res) => {
+    const coment = {
+        id: uuidv4(),
+        name: req.body.name,
+        comentMsg: req.body.comentMsg,
+    };
+    coments.push(coment);
+    return res.status(201).json({
+        status: 201,
+        message: 'coment successfully created',
+        data: coment,
+    });
 
-//  const update=(req,res)=>{
-//     const id = req.params.id;
-//     const comment = comments.filter((comment) => {
-//         return comment.id === id;
-//     });
-//   const deleteComment=(req,res)=>{
-//     const id=req.params.id;
-//     const commentCheck = comments.filter((commenticheck) => commenticheck.id ===id);
-//     comments.splice(comments.indexOf(commenticheck), 1);
-//     res.send(comments);
-// };
-// exports = {getAllComments,getCommentById,createComment,deleteComment};
-// }
+};
+
+export const update=(req,res)=>{
+    const id = req.params.id;
+    const coment = coments.filter((coment) => {
+        return coment.id === id;
+    });
+    if(coment[0]){
+        coment[0].name=req.body.name;
+        coment[0].comentMsg= req.body.comentMsg;
+        return res.status(200).json({
+            status: 200,
+            message: 'coment successfully updated',
+            data: coment,
+        });
+    }
+    return res.status(404).json({
+        status: 404,
+        error: 'coment not found',
+    });
+    
+}
+
+export const deleteComent=(req,res)=>{
+    const id=req.params.id;
+    const coment = coments.filter((coment) => {
+        return coment.id === id;
+    });
+    if(coment[0]){
+        var a = coments.indexOf(coment[0]);
+        coments.splice(a, 1);
+        return res.status(200).json({
+            status: 200,
+            message: 'coment successfully deleted',
+            data: coment,
+        });
+    }
+    return res.status(404).json({
+        status: 404,
+        error: 'coment not found',
+    });
+}
