@@ -6,16 +6,15 @@ export const getAllPosts = (req, res) => {
     res.send(posts);
 };
 export const getPostById = (req, res) => {
-    const id = req.params.id;
-    const post = posts.filter((post) => {
-        return post.id === id;
-    });
+    let id = req.params.id;
+	let post = posts.filter((post) => post.id === id);
+	res.send(post);
 };
 export const createPost = (req, res) => {
     const post = {
         id: uuidv4(),
         title:req.body.title,
-        content:req.body.content,
+        content:req.body.content, 
         comment:[],
         author: req.body.author
     };

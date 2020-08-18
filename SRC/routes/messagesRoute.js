@@ -6,12 +6,12 @@ import { getAllMsgs, getMsgById, createMsg, deleteMesg } from '../controllers/me
 router.get('/message', getAllMsgs);
 
 // get specific message by ID
-router.get('/message:id', getMsgById);
+router.get('/message/:id', getMsgById);
 
 // create message by ID
 router.post('/message', createMsg);
 
 // delete message by ID
-router.delete('/message:id', deleteMesg);
+router.delete('/message/:id', deleteMesg);
 
 export default router;
