@@ -1,6 +1,9 @@
+// import {} from 'dotenv/config';
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const authorize = require('./autorization.middlewares');
+const {my_super_secret_key} = process.env;
+
 
 const app = express();
 
@@ -10,7 +13,7 @@ export const getToken = (req, res) =>{
         id: "1",
         name : "ANGE"
     }
- jwt.sign(user,"my super secret key",{ expiresIn: '30s'},(err, token) => {
+ jwt.sign(user,"my_super_secret_key",{ expiresIn: '30s'},(err, token) => {
         
         res.send(token);
     });
@@ -32,6 +35,9 @@ export const verifyToken = (req, res, next)=>{
         req.token = bearerToken;
         next();
     } else{
-        res.sendStatus(403);
+        // res.sendStatus(403);
+        res.json({
+            message: "not working"
+        });
     }
 };

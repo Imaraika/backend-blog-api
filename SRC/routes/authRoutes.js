@@ -9,9 +9,11 @@ router.get('/api',getAPI );
 router.post('/login', getToken);
 
 router.post('/postsToken',verifyToken, (req, res) => {
-    jwt.verify(req.token, 'secretkey', (err, authData) => {
+    jwt.verify(req.token, 'my_super_secret_key', (err, authData) => {
         if(err) {
-            res.sendStatus(403);
+            // res.sendStatus(403);
+            res.send('not working');
+
         } else{
             res.json({
                 message: 'Post created .....',
