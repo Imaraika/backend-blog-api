@@ -10,7 +10,8 @@ export const getToken = (req, res) =>{
         id: "1",
         name : "ANGE"
     }
-    const token = jwt.sign(user,"my super secret key",{ expiresIn: '30s'},(err, token) => {
+ jwt.sign(user,"my super secret key",{ expiresIn: '30s'},(err, token) => {
+        
         res.send(token);
     });
    
