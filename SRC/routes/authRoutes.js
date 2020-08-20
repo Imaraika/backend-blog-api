@@ -1,9 +1,11 @@
 import express, { Router } from 'express'; 
-import { getAPI, getToken} from '../middlewares/authenticationjwt';
+import { getAPI, verifyToken, getToken} from '../middlewares/authenticationjwt';
 import jwt from 'jsonwebtoken'
 
 const router = express.Router();
 router.get('/api', getAPI );
-router.get('/token', getToken);
+router.post('/login', getToken);
+
+router.post('/postToken', verifyToken);
 
 export default router;
