@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./build/index.js",
     "dev": "nodemon --exec babel-node SRC/index",
-    "build": "babel ./SRC -d build"
+    "build": "rm -rf build && babel ./SRC -d build"
   },
   "repository": {
     "type": "git",

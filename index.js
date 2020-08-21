@@ -32,7 +32,7 @@ app.use(_express["default"].urlencoded({
 }));
 app.get('/', function (req, res) {
   return res.status(200).json({
-    message: 'Welcome To Backend-blog-api Project '
+    message: 'Welcome '
   });
 });
 app.use('/', _usersRoute["default"]);
