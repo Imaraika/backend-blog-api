@@ -5,12 +5,14 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.verifyToken = exports.getAPI = exports.getToken = void 0;
 
+// import {} from 'dotenv/config';
 var express = require('express');
 
 var jwt = require('jsonwebtoken');
 
 var authorize = require('./autorization.middlewares');
 
+var my_super_secret_key = process.env.my_super_secret_key;
 var app = express(); //user should be Authenticated !!
 
 var getToken = function getToken(req, res) {
@@ -18,7 +20,7 @@ var getToken = function getToken(req, res) {
     id: "1",
     name: "ANGE"
   };
-  jwt.sign(user, "my super secret key", {
+  jwt.sign(user, "my_super_secret_key", {
     expiresIn: '30s'
   }, function (err, token) {
     res.send(token);
@@ -44,7 +46,10 @@ var verifyToken = function verifyToken(req, res, next) {
     req.token = bearerToken;
     next();
   } else {
-    res.sendStatus(403);
+    // res.sendStatus(403);
+    res.json({
+      message: "not working"
+    });
   }
 };
 
