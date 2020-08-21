@@ -13,7 +13,7 @@ const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`listening on port ${port}...`));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.get('/', (req, res) => res.status(200).json({ message: 'Welcome ' }));
+app.get('/', (req, res) => res.status(200).json({ message: 'Welcome To Backend-blog-api Project ' }));
 app.use('/',UsaRoute);
 app.use('/',MessRoute);
 app.use('/',posRoute);
