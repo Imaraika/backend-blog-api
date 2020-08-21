@@ -26,9 +26,10 @@ var router = _express["default"].Router();
 router.get('/api', _authenticationjwt.getAPI);
 router.post('/login', _authenticationjwt.getToken);
 router.post('/postsToken', _authenticationjwt.verifyToken, function (req, res) {
-  _jsonwebtoken["default"].verify(req.token, 'secretkey', function (err, authData) {
+  _jsonwebtoken["default"].verify(req.token, 'my_super_secret_key', function (err, authData) {
     if (err) {
-      res.sendStatus(403);
+      // res.sendStatus(403);
+      res.send('not working');
     } else {
       res.json({
         message: 'Post created .....',
