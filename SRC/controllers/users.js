@@ -4,9 +4,10 @@ import { v4 as uuidv4 } from 'uuid';
 
 export const getAll = (req, res) => {
     if (!users) {
+        
         return res.status(404).json({
-            status: 404,
-            error: 'No office found',
+            status: 404, 
+            error: 'No user found',
         });
     }
     return res.status(200).json({

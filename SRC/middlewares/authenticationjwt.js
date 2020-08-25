@@ -9,13 +9,18 @@ const app = express();
 
 //user should be Authenticated !!
 export const getToken = (req, res) =>{
+
     const user = {
         id: "1",
-        name : "ANGE"
+        name : "ANGE",
+        password: "",
+        role: "admin"
     }
  jwt.sign(user,"my_super_secret_key",{ expiresIn: '30s'},(err, token) => {
         
-        res.send(token);
+        res.json({
+          token
+        });
     });
    
 }
