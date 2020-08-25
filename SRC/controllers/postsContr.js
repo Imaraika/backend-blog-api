@@ -33,27 +33,6 @@ export const createPost = (req, res) => {
     res.send(post);
 };
 
-// export const update=(req,res)=>{
-//     const id = req.params.id;
-//     const post = posts.filter((post) => {
-//         return post.id === id;
-//     });
-//     if(post[0]){
-//         post[0].title=req.body.title;
-//         post[0].content=req.body.content;
-//         post[0].author= req.body.author;
-//         return res.status(200).json({
-//             status: 200,
-//             message: 'post successfully updated',
-//             data: post,
-//         });
-//     }
-//     return res.status(404).json({
-//         status: 404,
-//         error: 'post not found',
-//     });
-    
-// }
 export const deletePost=(req,res)=>{
     let id = req.params.id;
 	let found = posts.find((post) => post.id === id);
