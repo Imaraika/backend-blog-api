@@ -5,18 +5,18 @@ const { expect } = chai;
 
 
 chai.use(chaihttp);
-describe('Message',() =>{
-    describe('GET /messages', () =>{
-        it('should return an array of the all Messages', (done) =>{
+describe('Comment',() =>{
+    describe('GET /comments', () =>{
+        it('should return an array of the all Comments', (done) =>{
             chai.request(app)
-            .get('/message')
+            .get('/comments')
             .end((err, res) => {
                 if(err) done(err);
                 // console.log(res.body);
                 expect(res).to.have.status(200);
                 expect(res).to.be.an('object');
                 // expect(res.body.status).to.deep.equals('success');
-                expect(res.body).to.be.an('array');
+                expect(res.body.comments).to.be.an('array');
                 done();
             });
         });
