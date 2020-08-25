@@ -6,12 +6,17 @@ import posRoute from './routes/postsRoute.js';
 import commentiRoute from './routes/commentsRoute';
 import authRoute from './routes/authRoutes';
 import bodyParser from 'body-parser';
-import routesPostTests from './routesTesting/post.routes.test';
-// import jsonwebtoken from ('jsonwebtoken');
+import routes from './routesTesting/post.routes.test';
+import routeMsgTst from './routesTesting/message.routes.test';
 
 const app = express();
+
+app.use(bodyParser.urlencoded({ extended:true }));
+app.use(bodyParser.json());
+app.use('/', routes);
+app.use('/',routeMsgTst);
 //PORT
-const port = process.env.PORT || 70;
+const port = process.env.PORT || 90;
 app.listen(port, () => console.log(`listening on port ${port}...`));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -21,7 +26,4 @@ app.use('/',MessRoute);
 app.use('/',posRoute);
 app.use('/',commentiRoute);
 app.use('/',authRoute);
-app.use(bodyParser.urlencoded({ extended:true }));
-app.use(bodyParser.json());
-app.use('/', routesPostTests);
 export default app;

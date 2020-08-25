@@ -1,9 +1,10 @@
-import { favPosts } from '../models/postsCollection';
+import { favPosts } from '../models/favposts.collection';
 
-const getAllPostsforTest = (req, res) => {
+const getAllPosts = (req, res) => {
     return res.status(200).json({
     status: 'success',
+    // movies:'favMovies',
     data: favPosts
     });
 };
-export default getAllPostsforTest ;
+export default getAllPosts ;

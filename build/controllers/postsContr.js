@@ -16,10 +16,9 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 var getAllPostsforTest = function getAllPostsforTest(req, res) {
-  return res.status(200).json({
-    status: 'success',
-    // movies:'favMovies',
-    data: _postsCollection.favPosts
+  return res.status(200).json({// status: 'success',
+    // post:'favPosts',
+    // data: favPosts
   });
 };
 
@@ -55,27 +54,7 @@ var createPost = function createPost(req, res) {
   _postsCollection["default"].push(post);
 
   res.send(post);
-}; // export const update=(req,res)=>{
-//     const id = req.params.id;
-//     const post = posts.filter((post) => {
-//         return post.id === id;
-//     });
-//     if(post[0]){
-//         post[0].title=req.body.title;
-//         post[0].content=req.body.content;
-//         post[0].author= req.body.author;
-//         return res.status(200).json({
-//             status: 200,
-//             message: 'post successfully updated',
-//             data: post,
-//         });
-//     }
-//     return res.status(404).json({
-//         status: 404,
-//         error: 'post not found',
-//     });
-// }
-
+};
 
 exports.createPost = createPost;
 

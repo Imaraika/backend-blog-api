@@ -1,7 +1,6 @@
+import getAllPosts from '../controllersTesting/post.controllers.test';
 import express from 'express';
-import { getAllPostsforTest } from '../controllersTesting/post.controllers.test';
-
 const router = express.Router();
 
-router.get('/post', getAllPostsforTest);
+router.get('/posts', getAllPosts );
  export default router;
