@@ -17,7 +17,7 @@ router.post('/post', _postsContr.createPost);
 router.get('/post', _postsContr.getAllPosts);
 router.get('/post/:id', _postsContr.getPostById); // router.put('/post/:id', update);
 
-router["delete"]('/post/:id', _postsContr.deletePost);
-router.get('/post', _postsContr.getAllPostsforTest);
+router["delete"]('/post/:id', _postsContr.deletePost); // router.get('/post', getAllPostsforTest);
+
 var _default = router;
 exports["default"] = _default;

@@ -1,17 +1,6 @@
 
-import { favPosts} from '../models/postsCollection';
-
-
 import posts from '../models/postsCollection';
 import { v4 as uuidv4 } from 'uuid';
-
-export const getAllPostsforTest = (req, res) => {
-    return res.status(200).json({
-    // status: 'success',
-    // post:'favPosts',
-    // data: favPosts
-    });
-};
 
 export const getAllPosts = (req, res) => {
     res.send(posts);
