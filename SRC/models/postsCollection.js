@@ -1,6 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 
 var posts = [{
+    
     title: 'Modern CSS Techniques To Improve Legibility.',
     content: `In this article, we cover how we can improve websites legibility using some modern CSS techniques,
     great new technologies like variable fonts and putting into practise what we learned from doing
