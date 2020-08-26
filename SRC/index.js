@@ -9,6 +9,7 @@ import bodyParser from 'body-parser';
 import routes from './routesTesting/post.routes.test';
 import routeMsgTst from './routesTesting/message.routes.test';
 import routeCmtTst from './routesTesting/comments.routes.test';
+import routeUserTst from './routesTesting/users.route.test';
 
 
 const app = express();
@@ -18,6 +19,8 @@ app.use(bodyParser.json());
 app.use('/', routes);
 app.use('/',routeMsgTst);
 app.use('/', routeCmtTst);
+app.use('/', routeUserTst);
+
 //PORT
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`listening on port ${port}...`));

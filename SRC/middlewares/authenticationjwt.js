@@ -2,7 +2,7 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const authorize = require('./autorization.middlewares');
-const {my_super_secret_key} = process.env;
+const {my_super_secret_key_ange} = process.env;
 
 
 const app = express();
@@ -12,11 +12,11 @@ export const getToken = (req, res) =>{
 
     const user = {
         id: "1",
-        name : "ANGE",
-        password: "",
-        role: "admin"
+        name : "ANGE"
+        // password: "",
+        // role: "admin"
     }
- jwt.sign(user,"my_super_secret_key",{ expiresIn: '30s'},(err, token) => {
+ jwt.sign(user,"my_super_secret_key_ange",{ expiresIn: '30s'},(err, token) => {
         
         res.json({
           token
@@ -31,18 +31,14 @@ export const getAPI = (req, res) => {
     });
 }
 
-export const verifyToken = (req, res, next)=>{
+export const verifyToken= (req, res, next)=>{
     const bearerHeader = req.headers['authorization'];
-    // check if bearer is undentified
     if(typeof bearerHeader !== 'undefined') {
         const bearer = bearerHeader.split(' ');
         const bearerToken = bearer[1];
         req.token = bearerToken;
         next();
     } else{
-        // res.sendStatus(403);
-        res.json({
-            message: "not working"
-        });
+        res.sendStatus(403);
     }
 };

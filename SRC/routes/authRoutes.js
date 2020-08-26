@@ -8,12 +8,10 @@ const router = express.Router();
 router.get('/api',getAPI );
 router.post('/login', getToken);
 
-router.post('/postsToken',verifyToken, (req, res) => {
-    jwt.verify(req.token, 'my_super_secret_key', (err, authData) => {
+router.post('/register',verifyToken, (req, res) => {
+    jwt.verify(req.token, 'my_super_secret_key_ange', (err, authData) => {
         if(err) {
-            // res.sendStatus(403);
-            res.send('not working');
-
+            res.sendStatus(403);
         } else{
             res.json({
                 message: 'Post created .....',
@@ -23,6 +21,5 @@ router.post('/postsToken',verifyToken, (req, res) => {
     })
 
 });
-
 
 export default router;
