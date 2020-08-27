@@ -11,18 +11,19 @@ const app = express();
 export const getToken = (req, res) =>{
 
     const user = {
-        id: "1",
-        name : "ANGE"
+        name : "ANGE",
+        email:'ange@gmail.com',
         // password: "",
-        // role: "admin"
+        role: "admin"
     }
- jwt.sign(user,"my_super_secret_key_ange",{ expiresIn: '30s'},(err, token) => {
+     const generateToken = (name,email,password,role) => {
+     jwt.sign(user,"my_super_secret_key",{ expiresIn: '24h'},(err, token) => {
         
         res.json({
           token
         });
     });
-   
+}
 }
 
 export const getAPI = (req, res) => {
