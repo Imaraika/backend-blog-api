@@ -2,6 +2,9 @@
 import posts from '../models/postsCollection';
 import { v4 as uuidv4 } from 'uuid';
 
+const mongoose = require('mongoose');
+const Product = require('../models/postsCollection');
+
 export const getAllPosts = (req, res) => {
     res.send(posts);
 };
@@ -18,8 +21,22 @@ export const createPost = (req, res) => {
         comment:[],
         author: req.body.author
     };
+    const product = new Product({
+        // _id:new mongoose.Types.ObjectId(),
+        title: req.body.title,
+        content: req.body.content,
+        author: req.body.author
+    });
+    product
+    .save()
+    .then(result => {
+        console.log(result);
+    })
+    .catch(err => console.log(err));
+
     posts.push(post);
     res.send(post);
+
 };
 
 export const deletePost=(req,res)=>{
