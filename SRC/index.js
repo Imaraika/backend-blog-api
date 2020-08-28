@@ -10,7 +10,13 @@ import routes from './routesTesting/post.routes.test';
 import routeMsgTst from './routesTesting/message.routes.test';
 import routeCmtTst from './routesTesting/comments.routes.test';
 import routeUserTst from './routesTesting/users.route.test';
+import dotEnv from 'dotenv';
+dotEnv.config() 
 
+const mongoose = require('mongoose');
+mongoose.connect(`mongodb+srv://ange-admin:${process.env.MONGO_ATLAS_PW}@cluster0.cjtky.mongodb.net/<dbname>?retryWrites=true&w=majority`,
+{useNewUrlParser: true,
+    useUnifiedTopology: true});
 
 const app = express();
 

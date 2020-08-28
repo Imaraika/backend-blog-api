@@ -25,28 +25,28 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">20% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>7/35</span>
+                <span class='fraction'>8/40</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>0/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>0/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">20% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/35</span>
+                <span class='fraction'>8/40</span>
             </div>
         
             
@@ -150,7 +150,18 @@
 <a name='L91'></a><a href='#L91'>91</a>
 <a name='L92'></a><a href='#L92'>92</a>
 <a name='L93'></a><a href='#L93'>93</a>
-<a name='L94'></a><a href='#L94'>94</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a>
+<a name='L97'></a><a href='#L97'>97</a>
+<a name='L98'></a><a href='#L98'>98</a>
+<a name='L99'></a><a href='#L99'>99</a>
+<a name='L100'></a><a href='#L100'>100</a>
+<a name='L101'></a><a href='#L101'>101</a>
+<a name='L102'></a><a href='#L102'>102</a>
+<a name='L103'></a><a href='#L103'>103</a>
+<a name='L104'></a><a href='#L104'>104</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -191,6 +202,15 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -244,6 +264,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import users from '../models/userscollection';
+import generateToken from '../middlewares/authenticationjwt';
 import { v4 as uuidv4 } from 'uuid';
 &nbsp;
 &nbsp;
@@ -281,22 +302,31 @@ export const <span class="fstat-no" title="function not covered" >getUserById </
     });
 &nbsp;
 };
-export const <span class="fstat-no" title="function not covered" >getAllUsers </span>= (req, res) =&gt; {
-    const user = <span class="cstat-no" title="statement not covered" >{</span>
+export const <span class="fstat-no" title="function not covered" >createUser </span>= (req, res) =&gt; {
+    const user = <span class="cstat-no" title="statement not covered" >{ </span>
         id: uuidv4(),
         email: req.body.email,
         password: req.body.password,
-        role: 'user'
+        role: req.body.role
     };
-<span class="cstat-no" title="statement not covered" >    users.p</span>ush(user);
-<span class="cstat-no" title="statement not covered" >    return r</span>es.status(201).json({
-        status: 201,
-        message: 'user successfully created',
-        data: user,
+    const userf = <span class="cstat-no" title="statement not covered" >users.f</span>ilter(<span class="fstat-no" title="function not covered" >(u</span>ser1) =&gt; {
+<span class="cstat-no" title="statement not covered" >        return u</span>ser1.email === user.email ;
     });
+<span class="cstat-no" title="statement not covered" >    if (userf[0]) {</span>
+<span class="cstat-no" title="statement not covered" >    return r</span>es.status(409).json({
+        status: 409,
+        error: `user with ${user.email} already exists`,
+    });
+    }else{
+<span class="cstat-no" title="statement not covered" >        users.p</span>ush(user);
+<span class="cstat-no" title="statement not covered" >        return r</span>es.status(201).json({
+            status: 201,
+            message: 'user successfully created',
+            data: users,
+        });
+    }
 &nbsp;
 };
-&nbsp;
 export const <span class="fstat-no" title="function not covered" >update=</span>(req,res)=&gt;{
     const id = <span class="cstat-no" title="statement not covered" >req.params.id;</span>
     const user = <span class="cstat-no" title="statement not covered" >users.f</span>ilter(<span class="fstat-no" title="function not covered" >(u</span>ser) =&gt; {
@@ -308,7 +338,7 @@ export const <span class="fstat-no" title="function not covered" >update=</span>
 <span class="cstat-no" title="statement not covered" >        return r</span>es.status(200).json({
             status: 200,
             message: 'user successfully updated',
-            data: user,
+            data: users,
         });
     }
 <span class="cstat-no" title="statement not covered" >    return r</span>es.status(404).json({
@@ -343,7 +373,7 @@ export const <span class="fstat-no" title="function not covered" >deleteUser=</s
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Aug 26 2020 22:28:26 GMT+0200 (Eastern European Standard Time)
+                at Thu Aug 27 2020 20:56:23 GMT+0200 (Eastern European Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>
