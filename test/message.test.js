@@ -22,3 +22,26 @@ describe('Message',() =>{
         });
     });
 });
+describe('When the user create a message --api/message', () => {
+    it('should return message created successfully', (done) => {
+   chai
+     .request(app)
+     .post('/message')
+     .send({
+        email: 'ange@gmail.com',
+		name: 'Ange',
+		msg: 'Hello, well done',
+		date: new Date(),
+     })
+     .end((err, res) => {
+       expect(res.body).to.be.an('object');
+       expect(res.body.message).to.equal('Message successfully sent');
+       expect(res).to.have.status(201);
+       expect(res.body).to.have.property('status');
+       expect(res.body).to.have.property('message');
+       expect(res.body).to.have.property('data');
+       done();
+     });
+ });
+
+});

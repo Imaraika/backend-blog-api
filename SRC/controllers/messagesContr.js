@@ -18,7 +18,12 @@ const createMsg = (req, res) => {
 	newMsg.msg = req.body.msg;
 	newMsg.date = new Date();
 	messages.push(newMsg);
-	res.send(messages);
+	// res.send(messages);
+	return res.status(201).json({
+        status: 201,
+        message: 'Message successfully sent',
+		data: messages
+	});
 };
 
 const deleteMesg = (req, res) => {
