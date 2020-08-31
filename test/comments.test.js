@@ -22,3 +22,24 @@ describe('Comment',() =>{
         });
     });
 });
+describe('When the user create a comments --api/comment', () => {
+    it('should return comment created successfully', (done) => {
+   chai
+     .request(app)
+     .post('/coment')
+     .send({
+        name:'ange',
+        comentMsg:'well done, and try to improve your UI to look good'
+     })
+     .end((err, res) => {
+       expect(res.body).to.be.an('object');
+       expect(res.body.message).to.equal('coment successfully created');
+       expect(res).to.have.status(201);
+       expect(res.body).to.have.property('status');
+       expect(res.body).to.have.property('message');
+       expect(res.body).to.have.property('data');
+       done();
+     });
+ });
+
+});

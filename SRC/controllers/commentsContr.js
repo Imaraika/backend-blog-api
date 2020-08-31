@@ -35,7 +35,7 @@ export const getComentById = (req, res) => {
     });
 
 };
-export const getAllComents = (req, res) => {
+export const createComent = (req, res) => {
     const coment = {
         id: uuidv4(),
         name: req.body.name,

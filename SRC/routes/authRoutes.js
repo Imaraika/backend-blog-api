@@ -1,6 +1,8 @@
 import express, { Router } from 'express'; 
 import dotenv from 'dotenv';
 
+dotenv.config();
+
 import { getAPI, verifyToken, getToken} from '../middlewares/authenticationjwt';
 import jwt from 'jsonwebtoken'
 const authorize = require('../middlewares/autorization.middlewares');
@@ -11,7 +13,7 @@ router.get('/api',getAPI );
 router.post('/login', getToken);
 
 router.post('/register',verifyToken, (req, res) => {
-    jwt.verify(req.token, 'MY_SUPER_SECRET', (err, authData) => {
+    jwt.verify(req.token, process.env.MY_SUPER_SECRET_INGABIRE, (err, authData) => {
         if(err) {
             res.sendStatus(403);
         } else{
