@@ -13,7 +13,7 @@ router.get('/api',getAPI );
 router.post('/login', getToken);
 
 router.post('/register',verifyToken, (req, res) => {
-    jwt.verify(req.token, process.env.MY_SUPER_SECRET_INGABIRE, (err, authData) => {
+    jwt.verify(req.token,process.env.SECRET_K, (err, authData) => {
         if(err) {
             res.sendStatus(403);
         } else{
