@@ -18,7 +18,7 @@ export const getToken = (req, res) =>{
         // password: "",
         // role: "admin"
     }
- jwt.sign(user, process.env.MY_SUPER_SECRET_INGABIRE,{ expiresIn: '30s'},(err, token) => {
+ jwt.sign(user,process.env.SECRET_K,{ expiresIn: '24h'},(err, token) => {
         
         res.json({
           token
