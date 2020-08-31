@@ -1,15 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
 
-const mongoose = require('mongoose');
-
-const postSchema = mongoose.Schema({
-    // _id : mongoose.Types.ObjectId,
-    title: String,
-    content: String,
-    author:String
-});
-module.exports = mongoose.model('BlogPost',postSchema);
-
 var posts = [{
     
     title: 'Modern CSS Techniques To Improve Legibility.',

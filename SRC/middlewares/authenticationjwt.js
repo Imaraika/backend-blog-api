@@ -2,7 +2,7 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const authorize = require('./autorization.middlewares');
-const {my_super_secret_key_ange} = process.env;
+const {my_super_secret_key} = process.env;
 
 
 const app = express();
@@ -11,19 +11,18 @@ const app = express();
 export const getToken = (req, res) =>{
 
     const user = {
-        name : "ANGE",
-        email:'ange@gmail.com',
+        id: "1",
+        name : "ANGE"
         // password: "",
-        role: "admin"
+        // role: "admin"
     }
-     const generateToken = (name,email,password,role) => {
-     jwt.sign(user,"my_super_secret_key",{ expiresIn: '24h'},(err, token) => {
+ jwt.sign(user,"MY_SUPER_SECRET",{ expiresIn: '30s'},(err, token) => {
         
         res.json({
           token
         });
     });
-}
+   
 }
 
 export const getAPI = (req, res) => {
