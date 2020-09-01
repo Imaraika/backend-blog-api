@@ -29,7 +29,7 @@ describe('When the user create a blog --api/blog', () => {
          it('should return blog created successfully', (done) => {
         chai
           .request(app)
-          .post('/blogdb')
+          .post('/post')
           .send({
             title: 'Modern CSS Techniques To Improve Legibility.',
             content: `In this article, we cover how we can improve websites legibility using some modern CSS techniques,
@@ -41,8 +41,8 @@ describe('When the user create a blog --api/blog', () => {
             if (err) done(err)
             expect(res.body).to.be.an('object');
             expect(res.body.message).to.equal('Post successfully created');
-            expect(res).to.have.status(200);
-            // expect(res.body).to.have.property('status');
+            expect(res).to.have.status(201);
+            expect(res.body).to.have.property('status');
             expect(res.body).to.have.property('message');
             expect(res.body).to.have.property('data');
             done();

@@ -24,7 +24,7 @@ const getAllPostinDB = (req, res, next) => {
     });
     blogpost.save().then(result => {
         console.log(result);
-        res.status(200).json({
+        res.status(201).json({
             message: "Post successfully created",
             // createBloginDB: blogpost,
             data:result
