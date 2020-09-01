@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">64% </span>
+                <span class="strong">28% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>16/25</span>
+                <span class='fraction'>7/25</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/6</span>
+                <span class='fraction'>0/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">69.57% </span>
+                <span class="strong">30.43% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>16/23</span>
+                <span class='fraction'>7/23</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -101,7 +101,7 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -110,15 +110,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -140,8 +140,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import messages from '../models/messages';
 import { v4 as uuidv4 } from 'uuid';
 &nbsp;
-const getAllMsgs = (req, res) =&gt; {
-	res.send(messages);
+const <span class="fstat-no" title="function not covered" >getAllMsgs </span>= (req, res) =&gt; {
+<span class="cstat-no" title="statement not covered" >	res.</span>send(messages);
 };
 const <span class="fstat-no" title="function not covered" >getMsgById </span>= (req, res) =&gt; {
 	let id = <span class="cstat-no" title="statement not covered" >req.params.id;</span>
@@ -149,16 +149,16 @@ const <span class="fstat-no" title="function not covered" >getMsgById </span>= (
 <span class="cstat-no" title="statement not covered" >	res.</span>send(msg);
 };
 &nbsp;
-const createMsg = (req, res) =&gt; {
-	let newMsg = {};
-	newMsg.id = uuidv4();
-	newMsg.name = req.body.name;
-	newMsg.email = req.body.email;
-	newMsg.msg = req.body.msg;
-	newMsg.date = new Date();
-	messages.push(newMsg);
+const <span class="fstat-no" title="function not covered" >createMsg </span>= (req, res) =&gt; {
+	let newMsg = <span class="cstat-no" title="statement not covered" >{};</span>
+<span class="cstat-no" title="statement not covered" >	newMsg.</span>id = uuidv4();
+<span class="cstat-no" title="statement not covered" >	newMsg.</span>name = req.body.name;
+<span class="cstat-no" title="statement not covered" >	newMsg.</span>email = req.body.email;
+<span class="cstat-no" title="statement not covered" >	newMsg.</span>msg = req.body.msg;
+<span class="cstat-no" title="statement not covered" >	newMsg.</span>date = new Date();
+<span class="cstat-no" title="statement not covered" >	messages.p</span>ush(newMsg);
 	// res.send(messages);
-	return res.status(201).json({
+<span class="cstat-no" title="statement not covered" >	return r</span>es.status(201).json({
         status: 201,
         message: 'Message successfully sent',
 		data: messages
@@ -184,7 +184,7 @@ module.exports = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Sep 01 2020 18:55:23 GMT+0200 (Eastern European Standard Time)
+                at Tue Sep 01 2020 23:39:13 GMT+0200 (Eastern European Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>
