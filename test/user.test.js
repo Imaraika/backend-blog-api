@@ -29,7 +29,7 @@ describe('POST /users', () =>{
         chai.request(app)
         .post('/users')
         .send({
-            emsil:"ange@gmail.com",
+            email:"ange@gmail.com",
             password:"678908",
             role:"admin"
         })

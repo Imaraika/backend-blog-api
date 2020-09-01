@@ -10,11 +10,13 @@ const BlogPost = require('../models/blogpost.collection');
     });
     blogpost.save().then(result => {
         console.log(result);
+        res.status(200).json({
+            message: "Post successfully created",
+            // createBloginDB: blogpost,
+            data:result
+        });
     }).catch(err => console.log(err));
-    res.status(201).json({
-        message: "handling POST request to /blogpost",
-        createBloginDB: blogpost
-    });
+   
 }
  const getSpecificPostinDB = (req, res, next) => {
     const id = req.params.id;
@@ -23,13 +25,15 @@ const BlogPost = require('../models/blogpost.collection');
     .then(doc =>{
         console.log(doc);
         res.status(200).json(doc)
-    }).catch(err => console.log(err));
+    })
+    .catch(err => {
+        console.log(err);
     res.status(500).json({
-        message: "not working"
+        error: err
     });
-};
+    });
+}
 module.exports = {
     createBloginDB,
     getSpecificPostinDB,
 };
- 
