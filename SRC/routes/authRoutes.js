@@ -1,12 +1,8 @@
 import express, { Router } from 'express'; 
 import dotenv from 'dotenv';
-
 dotenv.config();
-
 import { getAPI, verifyToken, getToken} from '../middlewares/authenticationjwt';
 import jwt from 'jsonwebtoken'
-const authorize = require('../middlewares/autorization.middlewares');
-
 
 const router = express.Router();
 router.get('/api',getAPI );
