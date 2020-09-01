@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 const express = require('express');
 const jwt = require('jsonwebtoken');
-const authorize = require('./autorization.middlewares');
+// const authorize = require('./autorization.middlewares');
 const {MY_SUPER_SECRET_INGABIRE} = process.env;
 
 
@@ -15,8 +15,6 @@ export const getToken = (req, res) =>{
     const user = {
         id: "1",
         name : "ANGE"
-        // password: "",
-        // role: "admin"
     }
  jwt.sign(user,process.env.SECRET_K,{ expiresIn: '24h'},(err, token) => {
         

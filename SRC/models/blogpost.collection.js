@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const postSchema = mongoose.Schema({
-    // _id : mongoose.Types.ObjectId,
+    _id : mongoose.Schema.Types.ObjectId,
     title: String,
     content: String,
     author:String
