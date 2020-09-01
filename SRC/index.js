@@ -11,6 +11,7 @@ import routeMsgTst from './routesTesting/message.routes.test';
 import routeCmtTst from './routesTesting/comments.routes.test';
 import routeUserTst from './routesTesting/users.route.test';
 import routeblogpostDB from './routes/blogpost.route';
+import routemessagesDB from './routes/message.route.db';
 import dotEnv from 'dotenv';
 dotEnv.config() 
 
@@ -29,6 +30,7 @@ app.use('/',routeMsgTst);
 app.use('/', routeCmtTst);
 app.use('/', routeUserTst);
 app.use('/', routeblogpostDB);
+app.use('/', routemessagesDB);
 
 //PORT
 const port = process.env.PORT || 5000;

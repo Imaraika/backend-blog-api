@@ -2,6 +2,7 @@ import chai from 'chai';
 import chaihttp from 'chai-http';
 import  app  from "../SRC/index";
 
+
 const { expect } = chai;
 
 chai.use(chaihttp);
@@ -37,6 +38,7 @@ describe('When the user create a blog --api/blog', () => {
             author: 'Admin'
           })
           .end((err, res) => {
+            if (err) done(err)
             expect(res.body).to.be.an('object');
             expect(res.body.message).to.equal('Post successfully created');
             expect(res).to.have.status(201);

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
-    "test": "nyc --reporter=text --reporter=html mocha ./test --require @babel/polyfill --require @babel/register --timeout 10000 --exit",
+    "test": "nyc --reporter=text --reporter=html mocha ./test --require @babel/polyfill --require @babel/register --timeout 0 --exit",
     "start": "node ./build/index.js",
     "dev": "nodemon --exec babel-node SRC/index",
     "build": "rm -rf build && babel ./SRC -d build"
