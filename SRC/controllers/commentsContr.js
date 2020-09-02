@@ -58,8 +58,8 @@ export const update=(req,res)=>{
     if(coment[0]){
         coment[0].name=req.body.name;
         coment[0].comentMsg= req.body.comentMsg;
-        return res.status(200).json({
-            status: 200,
+        return res.status(201).json({
+            status: 201,
             message: 'coment successfully updated',
             data: coment,
         });
