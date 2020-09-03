@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 const express = require('express');
 const jwt = require('jsonwebtoken');
+import users from '../models/usersDB.collection'
 // const authorize = require('./autorization.middlewares');
 const {MY_SUPER_SECRET_INGABIRE} = process.env;
 

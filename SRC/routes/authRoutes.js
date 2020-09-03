@@ -3,9 +3,11 @@ import dotenv from 'dotenv';
 dotenv.config();
 import { getAPI, verifyToken, getToken} from '../middlewares/authenticationjwt';
 import jwt from 'jsonwebtoken'
+import { signup } from '../controllers/signup.controllers';
 
 const router = express.Router();
 router.get('/api',getAPI );
+router.post('/signup', signup);
 router.post('/login', getToken);
 
 router.post('/register',verifyToken, (req, res) => {
